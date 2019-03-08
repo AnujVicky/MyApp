@@ -1,0 +1,2 @@
+class HighestTransaction < ApplicationRecord
+end
