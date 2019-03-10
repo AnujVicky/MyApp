@@ -6,11 +6,18 @@ class InvoicesController < ApplicationController
   # GET /invoices.json
   def index
     @invoices = Invoice.all
+    @total_amount = Invoice.where("created_at ").collect{|a| a["amount"]}.sum
+    @total_invoices = Invoice.count
+
   end
 
+
+  def highest
+  end
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+
   end
 
   # GET /invoices/new

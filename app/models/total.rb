@@ -1,3 +1,0 @@
-class Total < ApplicationRecord
-
-end

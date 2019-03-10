@@ -1,5 +1,6 @@
 <% if current_user %>
   Logged in as <%= current_user.email %>.
+  <%= link_to 'Admin', users_url %>
   <%= link_to "Log Out", logout_path %>
 
 
@@ -27,15 +28,15 @@
         <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
         <td><%= link_to 'Destroy', invoice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <p>
-        <strong>Total amount:</strong>
-        <%=invoice.total_amount %>
-      </p>
-    <% end %>
 
+    <% end %>
+    <p>
+      <strong>Total amount:</strong>
+      <%=@total_amount%>
+    </p>
     <p>
       <strong>Total Invoices:</strong>
-      <%= Invoice.all.size %>
+      <%= @total_invoices %>
     </p>
 
 
@@ -45,6 +46,7 @@
 <br>
 
 <%= link_to 'New Invoice', new_invoice_path %>
+<%= link_to 'Highest Transaction', highest_path %>
 <% else %>
   <%= link_to "Sign Up", signup_path %> or
   <%= link_to "Log In", login_path %>
